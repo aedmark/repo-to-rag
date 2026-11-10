@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "repo-to-rag"
+version = "1.0.0"
+description = "Declarative repository-to-RAG corpus bundler for Google NotebookLM, Claude Projects, and high-context LLMs."
+readme = "README.md"
+authors = [{ name = "aedmark" }]
+license = { text = "MIT" }
+requires-python = ">=3.9"
+dependencies = []
+keywords = ["rag", "notebooklm", "llm", "claude", "gemini", "codebase", "corpus", "developer-tools"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Software Development :: Documentation",
+    "Topic :: Text Processing :: Markup :: Markdown",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+]
+
+[project.scripts]
+repo-to-rag = "repo_to_rag.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["repo_to_rag*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

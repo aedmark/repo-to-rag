@@ -1,0 +1,36 @@
+{
+  "$schema": "../schemas/rag_corpus.schema.json",
+  "corpus_id": "minimal_example",
+  "title": "Minimal Project Corpus",
+  "description": "Minimal configuration example for bundling documentation and source code.",
+  "target_system": "notebooklm",
+  "limits": {
+    "max_words_per_volume": 500000,
+    "max_chars_per_volume": 3500000,
+    "max_volumes": 50
+  },
+  "global_exclusions": [
+    "**/.git/**",
+    "**/.venv/**",
+    "**/__pycache__/**",
+    "**/*.pyc",
+    "**/node_modules/**",
+    "**/*.log",
+    "**/*.db"
+  ],
+  "volumes": [
+    {
+      "id": "01_docs_and_architecture",
+      "title": "Documentation & Architecture",
+      "description": "System architecture, readmes, and design docs.",
+      "priority_files": ["README.md"],
+      "include": ["*.md", "docs/**"]
+    },
+    {
+      "id": "02_source_code",
+      "title": "Source Code",
+      "description": "Application implementation.",
+      "include": ["src/**", "app/**", "*.py"]
+    }
+  ]
+}
